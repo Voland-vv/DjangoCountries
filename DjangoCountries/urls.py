@@ -21,5 +21,8 @@ from MainApp import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('countries/', views.countries_list, name='countries_list'),
+    path('countries/<str:str>/', views.country_page, name='country_page'),
+    path('languages/', views.languages_list, name='languages_list'),
     path('admin/', admin.site.urls),
 ]

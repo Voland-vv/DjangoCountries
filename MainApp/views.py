@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from MainApp.models import Country, Language
+from django.core.paginator import Paginator
 import json
 
 
@@ -12,9 +13,13 @@ def home(request):
 
 def countries_list(request):
     countries = Country.objects.all()
+    paginator = Paginator(countries, 10)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
     context = {
         'countries' : countries,
-        'ALPHABET' : ALPHABET
+        'ALPHABET' : ALPHABET,
+        'page_obj': page_obj,
     }
     return render(request, 'countries_list.html', context)
 

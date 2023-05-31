@@ -2,12 +2,20 @@
 
 {% block content %}
 <h2>Список стран в мире</h2>
-    {% for letter in ALPHABET %}
-         <a href="{% url 'countries_by_letter' letter %}">{{ letter }}</a>
-    {% endfor %}
+{% for letter in ALPHABET %}
+     <a href="{% url 'countries_by_letter' letter %}">{{ letter }}</a>
+{% endfor %}
+
 <ol>
-    {% for country in countries %}
+    {% for country in page_obj %}
         <a href="{% url 'country_page' country.name %}"><li>{{ country.name }}</li></a>
     {% endfor %}
 </ol>
+
+<nav>
+    {% for page in page_obj.paginator.page_range %}
+        <a href="?page={{ page }}">{{ page }}</a>
+    {% endfor %}
+</nav>
+
 {% endblock %}

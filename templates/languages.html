@@ -4,7 +4,7 @@
 <h2>Языки в мире</h2>
 <ol>
     {% for language in languages %}
-       <li>{{ language.name }}</li>
+    <a href="{% url 'language_page' language.name %}"><li>{{ language.name }}</li></a>
     {% endfor %}
 </ol>
 {% endblock %}

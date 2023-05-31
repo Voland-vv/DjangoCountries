@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('countries/', views.countries_list, name='countries_list'),
     path('countries/<str:str>/', views.country_page, name='country_page'),
+    path('countries/by_letter/<str:str>/', views.countries_by_letter, name='countries_by_letter'),
     path('languages/', views.languages_list, name='languages_list'),
     path('languages/<str:str>', views.language_page, name='language_page'),
     path('admin/', admin.site.urls),

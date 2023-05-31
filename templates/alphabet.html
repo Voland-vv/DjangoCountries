@@ -1,0 +1,6 @@
+<menu>
+    {% for letter in ALPHABET %}
+         <a href="{% url '' letter %}">{{ letter }}</a>
+    {% endfor %}
+
+</menu>

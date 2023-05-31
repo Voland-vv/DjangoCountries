@@ -3,8 +3,8 @@
 {% block content %}
 <h2>Языки в мире</h2>
 <ol>
-    {% for language in languages_list %}
-       <li>{{ language }}</li>
+    {% for language in languages %}
+       <li>{{ language.name }}</li>
     {% endfor %}
 </ol>
 {% endblock %}
